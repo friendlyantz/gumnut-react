@@ -1,22 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [title, setTitle] = useState('Editable Title');
+  const [text, setText] = useState('This is a textbox that you can edit.');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="title-input"
+        />
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className="text-area"
+        />
       </header>
     </div>
   );
